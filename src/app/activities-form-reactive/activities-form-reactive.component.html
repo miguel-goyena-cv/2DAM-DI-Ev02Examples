@@ -1,0 +1,17 @@
+<!--<label for="name">Monitor: </label>
+<input id="name" type="text" [formControl]="monitor">
+<p>Value: {{ monitor.value }}</p>-->
+<form [formGroup]="activityForm" (ngSubmit)="newActivity()">
+    <label for="monitor">Monitor: </label>
+    <input id="monitor" type="text" formControlName="monitor">
+    <label for="place">Lugar: </label>
+    <input id="place" type="text" formControlName="place">
+    <label for="date">Fecha: </label>
+    <input id="date" type="datetime-local" formControlName="date">
+    <label for="type">Tipo: </label>
+    <select formControlName="type" id="type" required >
+    <option *ngFor="let activityType of activityTypes" [value]="activityType">{{activityType}}</option>
+    </select>
+    <p>Complete the form to enable button.</p>
+    <button type="submit" [disabled]="!activityForm.valid">Nueva Actividad</button>
+</form>
