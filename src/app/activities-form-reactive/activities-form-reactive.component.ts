@@ -12,7 +12,7 @@ import { ActivitiesService, ActivityType, IActivity } from '../backend/activitie
 })
 export class ActivitiesFormReactiveComponent {
   activityForm = new FormGroup({
-    monitor: new FormControl('Miguel Goyena', Validators.required),
+    monitor: new FormControl('Miguel Goyena'),
     place: new FormControl('Aula02'),
     date: new FormControl(new Date(), Validators.required),
     type: new FormControl(ActivityType.BodyPump)
@@ -27,7 +27,12 @@ export class ActivitiesFormReactiveComponent {
   
   newActivity() {
     this.submitted = true;
-    const newActivityData: IActivity = {date: this.activityForm.value.date!, place: this.activityForm.value.place!, monitor: this.activityForm.value.monitor!, type: this.activityForm.value.type!};
-    this.activityService.createActivity(newActivityData);
+    const newActivityData: IActivity = {id: 4, activity_date: this.activityForm.value.date!, place: this.activityForm.value.place!, monitor: this.activityForm.value.monitor!, type: this.activityForm.value.type!};
+    this.activityService.createActivityAPI(newActivityData)
+      .subscribe(response => {
+        console.log('Created new Activity: '+response);
+        // Aqui vamos a recargar la lista de actividades
+        this.activityService.notifyUpdateActivity(null);
+      });
   }
 }

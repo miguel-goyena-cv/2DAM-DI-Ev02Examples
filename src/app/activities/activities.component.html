@@ -13,7 +13,7 @@
     </thead>
     <tbody>
         <tr *ngFor="let activity of activities">
-            <th scope="row">{{activity.date | date: 'dd/MM/yyyy HH:mm'}}</th>
+            <th scope="row">{{activity.activity_date | date: 'dd/MM/yyyy HH:mm'}}</th>
             <td>{{activity.place}}</td>
             <td>{{activity.monitor}}</td>
             <td>{{activity.type}}</td>

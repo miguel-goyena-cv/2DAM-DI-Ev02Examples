@@ -14,7 +14,7 @@ export class ActivitiesFormComponent {
 
   activityService: ActivitiesService;
   activityTypes = Object.values(ActivityType);
-  activity = { date: new Date(2014, 7, 10), place: 'Aula02', monitor: 'Miguel Goyena', type: ActivityType.BodyPump };
+  activity = { id: 3, activity_date: new Date(2014, 7, 10), place: 'Aula02', monitor: 'Miguel Goyena', type: ActivityType.BodyPump };
   submitted = false;
 
   constructor(activityService: ActivitiesService){
