@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ActivitiesService, ActivityType } from '../backend/activities.service';
+import { ActivitiesService, ActivityTypeName } from '../backend/activities.service';
 import { FormsModule } from '@angular/forms';
 
 @Component({
@@ -13,8 +13,8 @@ import { FormsModule } from '@angular/forms';
 export class ActivitiesFormComponent {
 
   activityService: ActivitiesService;
-  activityTypes = Object.values(ActivityType);
-  activity = { id: 3, activity_date: new Date(2014, 7, 10), place: 'Aula02', monitor: 'Miguel Goyena', type: ActivityType.BodyPump };
+  activityTypes = Object.values(ActivityTypeName);
+  activity = { id: 3, startDate: new Date(2014, 7, 10), endDate: new Date(2014, 7, 10),  activityType: {id: 1, name: ActivityTypeName.Pilates, monitorsNeeded: 3}};
   submitted = false;
 
   constructor(activityService: ActivitiesService){
